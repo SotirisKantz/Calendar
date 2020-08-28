@@ -1,0 +1,149 @@
+#header {
+    display: grid;
+}
+
+.calendar {
+    justify-self: center;
+    color: blue;
+    font-size: 25px;
+    margin: 20px;
+    padding: 0px;
+}
+
+#month_year {
+    color: blueviolet;
+    font-size: 18px;
+    justify-self: end;
+    grid-column: 1;
+    padding: 0px;
+    margin: 20px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+
+#previousNext {
+    color: rgb(48, 7, 87);
+    display: grid;
+    grid-template-columns: 60% 1fr 1fr;
+    font-size: 14px;
+    justify-self: end;
+    grid-column: 1;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+
+
+@media only screen and (max-width: 499px)  {
+    #days {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-column-gap: 1%;
+    }
+
+    #buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #buttonAdd {
+        color: darkorange;
+        grid-column: 1;
+    }
+
+    #buttonDelete {
+        color: darkred;
+        grid-column: 2;
+    }
+
+    #week {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 500px)  {
+    #days {
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        grid-column-gap: 1%;
+    }
+
+    #buttons {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+
+    #buttonAdd {
+        color: darkorange;
+        grid-column: 2;
+    }
+
+    #buttonDelete {
+        color: darkred;
+        grid-column: 4;
+    }
+}
+
+.day{
+    padding: 0;
+    margin: 0;
+    border-radius: 1px;
+    border-style: solid;
+    border-color:cyan;
+    border-width: 12%; 
+    text-align: center;
+}
+
+.dayBefore {
+    border-color:yellowgreen;
+}
+
+
+
+.button {
+    margin: 0%;;
+}
+
+
+
+
+@media only screen and (min-width: 750px) {
+    #week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-column-gap: 1%;
+    }
+    
+    .namesWeek {
+        padding: 0;
+        margin: 0;
+        border: none;
+        text-align: center;
+        color: green;
+    }
+    
+    .namesWeekBellow {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 749px){
+    #week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-column-gap: 1%;
+    }
+
+    .namesWeek {
+        display: none;
+    }
+
+    .namesWeekBellow {
+        padding: 0;
+        margin: 0;
+        border: none;
+        text-align: center;
+        color: green;
+    }
+}

@@ -3,14 +3,16 @@ var day = date.getDate();
 var month = date.getMonth();
 var year = date.getFullYear();
 
-var currentMonth = month;
-var currentYear = year;
+var currentMonth = month; // current month displayed
+var currentYear = year; // current year displayed
 
 const newDivText = document.createTextNode('');
 document.getElementById('month_year').appendChild(newDivText);
 
+// Main function
 myfunction(day, month, year, currentMonth, currentYear);
 
+// AddEventListeners
 document.getElementById('previous').addEventListener('click',() => {
     month = month-1;
     if (month === -1){
@@ -41,35 +43,21 @@ document.getElementById('next').addEventListener('click', () => {
 
 })
 
-
-
-/*
-na ftiaxsw:
-1: o xrhsths na epilegei mhna xrono kai na allazei
-2: modal event add
-3: modal event delete
-4: modal day (displays all events)*/
-
+// Main function
 function myfunction(day, month, year, currentMonth, currentYear) {
     let d = new Date(year, month, 1, 0, 0, 0, 0);
     let dayOfWeek = d.getDay();
 
-    //const DaysBeforeFirst = ((day - dayOfWeek) % 7) - 1; // number of days before the first of the month
-    //const numberBefore = 7 - dayOfWeek - 1;
+    findMOnthBefore(dayOfWeek, month, year);  // Find previous month
 
-    findMOnthBefore(dayOfWeek, month, year);
-
-    findMOnth(month, year);
+    findMOnth(month, year); // Find current month
 
     const Array = ['January', 'February', 'March', 'April', 'May', 'June', 'Jule', 'August', 'September', 'October', 'November', 'December'];
     const nameOfMonth = Array[month];
 
-    
-
-    //document.getElementsByClassName('month_year').innerText = month + ' ' + year;
     document.getElementById('month_year').firstChild.data = nameOfMonth + ' ' + year;
     if (currentMonth === month && currentYear === year){
-        document.getElementById('days').children[day + dayOfWeek].style.borderColor = 'tomato';
+        document.getElementById('days').children[day + dayOfWeek - 1].style.borderColor = 'tomato'; //points today
     }
 
 
@@ -77,23 +65,22 @@ function myfunction(day, month, year, currentMonth, currentYear) {
 
 
 
-
+// Adds days of current month
 function addNodesToDates(number) {
     for (let i = 1; i <= number; i++) {
         document.getElementById('days').innerHTML += `<div class='day'>${i}</div>`;
-        /*var newDiv = document.getElementById('dates').createElement('div');
-        newDiv.className = 'date';
-        newDiv.data = i;*/
     }
 
 }
 
+// Adds days of previous month
 function addDaysBeforeFirst(number, dayOfWeek) {
     for (let i = number - dayOfWeek+1; i <= number; i++) {
         document.getElementById('days').innerHTML += `<div class='day dayBefore'>${i}</div>`;
     }
 }
 
+// Find previous month
 function findMOnthBefore(dayOfWeek, month, year) {
     if (dayOfWeek !== 0) {
         if ([0, 2, 4, 6, 7, 9, 11].includes(month - 1)) {
@@ -108,6 +95,7 @@ function findMOnthBefore(dayOfWeek, month, year) {
     }
 }
 
+// Find current month
 function findMOnth(month, year) {
     if ([0, 2, 4, 6, 7, 9, 11].includes(month)) {
         addNodesToDates(31);

@@ -4,4 +4,4 @@
 
 ![alt text](https://github.com/SotirisKantz/Calendar/blob/master/Calendar2.png)
 
-![alt text](https://github.com/SotirisKantz/Calendar/blob/master/Calendar3.png)
+![alt text](https://github.com/SotirisKantz/Calendar/blob/master/Calendar.png)
